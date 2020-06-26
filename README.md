@@ -44,7 +44,7 @@ const midTimeout = function (inFetch) {
 const betterFetch = nx.applyFetchMiddleware([
   midJson,
   midTimeout
-])(fetch);
+])(window.fetch);
 
 
 // 1. return json
