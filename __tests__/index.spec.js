@@ -1,10 +1,9 @@
-const nx = require('@feizheng/next-js-core2');
-var fetch = require('node-fetch');
-require('../src/next-apply-fetch-middleware');
+(function () {
+  require('../src');
 
+  describe('api.basic test', () => {
 
-describe('api.basic test', () => {
-  test('nx.applyFetchMiddleware', function (done) {
+test('nx.applyFetchMiddleware', function (done) {
     const midJson = function (inFetch) {
       return function (url, options) {
         console.log('json');
@@ -42,4 +41,6 @@ describe('api.basic test', () => {
       done();
     });
   });
-});
+
+  });
+})();
