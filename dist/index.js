@@ -3,7 +3,7 @@
  * description: Fetch meet middlewares.
  * homepage: https://github.com/afeiship/next-apply-fetch-middleware
  * version: 1.0.0
- * date: 2020-11-20 21:43:12
+ * date: 2020-11-20 21:44:04
  * license: MIT
  */
 
