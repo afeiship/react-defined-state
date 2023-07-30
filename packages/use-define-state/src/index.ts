@@ -1,6 +1,8 @@
 import createProxy from '@jswork/create-proxy';
 import { useState } from 'react';
 
+// https://chat.zhile.io/c/b65e7f07-bab8-49de-9b47-ad422d390b33
+
 declare var wx: any;
 
 export interface ReactDefinedStateOptions {
