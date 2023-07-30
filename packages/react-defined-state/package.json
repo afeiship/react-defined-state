@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-defined-state",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple and powerful tool for defining and managing component state in React.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
