@@ -12,16 +12,6 @@ export interface ReactDefinedStateOptions {
 const definedState = (initialState: ReactDefinedStateOptions) => {
   const [state, setState] = useState(initialState.state);
 
-  // getters
-  const getters = {};
-  if (initialState.getters) {
-    for (const [getterName, getterFunction] of Object.entries(initialState.getters)) {
-      Object.defineProperty(getters, getterName, {
-        get: () => getterFunction(state),
-      });
-    }
-  }
-
   // Define actions
   const actions = initialState.actions || {};
 
@@ -53,10 +43,18 @@ const definedState = (initialState: ReactDefinedStateOptions) => {
     });
   });
 
+  // getters
+  if (initialState.getters) {
+    for (const [getterName, getterFunction] of Object.entries(initialState.getters)) {
+      Object.defineProperty(state, getterName, {
+        get: () => getterFunction(state),
+      });
+    }
+  }
+
   return {
     state: deepProxyState,
-    getters,
-    actions,
+    ...actions,
   };
 };
 
