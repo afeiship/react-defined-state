@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import defineState from "@jswork/react-defined-state";
+import useDefineState from "@jswork/use-define-state";
 
 // Usage example
 const MyComponent = () => {
-  const { state, ...actions } = defineState({
+  const { state, ...actions } = useDefineState({
     state: {
       data: { name: { firstName: "John", lastName: "Doe" } },
       isLoading: true,
