@@ -25,6 +25,19 @@ const definedState = (initialState: ReactDefinedStateOptions) => {
   // Define actions
   const actions = initialState.actions || {};
 
+  if (initialState.actions) {
+    for (const [actionName, actionFunction] of Object.entries(initialState.actions)) {
+      // Check if the actionFunction is an arrow function
+      if (actionFunction instanceof Function && !actionFunction.hasOwnProperty('prototype')) {
+        // If it's an arrow function, just pass the state as the first parameter
+        actions[actionName] = (...args) => actionFunction(state, ...args);
+      } else {
+        // If it's a non-arrow function, bind the state to 'this' and pass it as the first parameter
+        actions[actionName] = actionFunction.bind(state);
+      }
+    }
+  }
+
   // Deep proxy to handle nested objects
   const deepProxyState = createProxy(state, (target, key, value) => {
     setState((prevState) => {
